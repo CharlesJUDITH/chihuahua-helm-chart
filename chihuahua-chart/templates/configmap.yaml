@@ -1,0 +1,12 @@
+{{- if .Values.chihuahua_node.enabled -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chihuahua-node-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "chihuahua-node.labels" . | nindent 4 }}
+data:
+  init.sh: |
+{{ tpl (.Files.Get "scripts/init.sh") . | indent 4 }}
+{{- end }}
