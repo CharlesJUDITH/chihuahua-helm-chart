@@ -20,7 +20,7 @@ chihuahua_node:
   # snapshot_provider can be either "polkachu" (2Gi), "autostake" (1Gi). Otherwise it'll default to a much larger in size.
   snapshot_provider: "polkachu"
   api_enable: "false"
-  moniker: chuck-dev
+  moniker: yourminikerhere
   chainid: chihuahua-1
   # disable PEX when nodes have issues with syncing / catching up / peer dial errors/flood
   minimum_gas_prices: 1uhuahua
@@ -228,8 +228,8 @@ local_storage:
 # If the node is a validator
 validator:
   enabled: true
-  node_key: eyJwcml2X2tleSI6eyJ0eXBlIjoidGVuZGVybWludC9Qcml2S2V5RWQyNTUxOSIsInZhbHVlIjoiYlNqcDFnQmlCSnQ5YXhna2tsWHVDUXJ6YUtibUk2UTF3dFZnT2VET2ZEQUZVZFRlWE51NXg4UG04aXNNczBzRFBuNTIyaE8wRXRab1ZkMGRzSDllakE9PSJ9fQ==
-  priv_key: ewogICJhZGRyZXNzIjogIkJBMDAyQTNERTc1RDQyMzc4Mjc1QTFGMDUxRjMzMEM1MzU5M0E4M0MiLAogICJwdWJfa2V5IjogewogICAgInR5cGUiOiAidGVuZGVybWludC9QdWJLZXlFZDI1NTE5IiwKICAgICJ2YWx1ZSI6ICJDa2VXMUlTQUxlQkdnS296MUphZTU2R0ZXVlRZZng0QXN1RnlGK3FYUTIwPSIKICB9LAogICJwcml2X2tleSI6IHsKICAgICJ0eXBlIjogInRlbmRlcm1pbnQvUHJpdktleUVkMjU1MTkiLAogICAgInZhbHVlIjogIlB2dzJuaXR5N3ZSNzEyYTlsSk0xeW4zdktFLzdWTkRSZE1Uc29MNnplMWNLUjViVWhJQXQ0RWFBcWpQVWxwN25vWVZaVk5oL0hnQ3k0WElYNnBkRGJRPT0iCiAgfQp9
+  node_key: 
+  priv_key: 
 
 # If the node is a fullnode (non-validator)
 fullnode:
@@ -278,4 +278,4 @@ affinity: {}
 
 ingress:
   enabled: false
-  domain: "chuck-dev.xyz"
+  domain: "dmain.tld"
