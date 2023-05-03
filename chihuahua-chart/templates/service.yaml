@@ -1,9 +1,9 @@
-{{- if .Values.chihuahua_node.enabled -}}
+{{- if .Values.fullnode.enabled -}}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: chihuahua-node-1
+  name: chihuahua-fullnode
   namespace: {{ .Release.Namespace }}
 spec:
   type: ClusterIP
@@ -17,5 +17,5 @@ spec:
     - port: 26657
       name: chihuahuad-rpc
   selector:
-    chihuahua.network/node: "1"
+    chihuahua.network/fullnode: "{{ .Values.chihuahua_node.moniker }}"
 {{- end }}

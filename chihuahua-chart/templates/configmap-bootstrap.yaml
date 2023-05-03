@@ -1,4 +1,4 @@
-{{- if .Values.bootstrap.enabled -}}
+{{- if .Values.validator.enabled -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -12,10 +12,10 @@ data:
     set -x
     if [ ! -d "$CHIHUAHUA_HOME/data" ] 
     then
-      chihuahuad init validator$NODE --home $CHIHUAHUA_HOME
+      chihuahuad init validator $CHIHUHU_MONIKER --home $CHIHUAHUA_HOME
       cp /bootstrap/genesis.json $CHIHUAHUA_HOME/config/genesis.json
-      cp /bootstrap/priv_validator_key_$NODE.json $CHIHUAHUA_HOME/config/priv_validator_key.json
-      cp /bootstrap/node_key_$NODE.json $CHIHUAHUA_HOME/config/node_key.json
+      cp /bootstrap/priv_validator_key.json $CHIHUAHUA_HOME/config/priv_validator_key.json
+      cp /bootstrap/node_key.json $CHIHUAHUA_HOME/config/node_key.json
     fi
     apt update && apt install curl -y
     rm -f $CHIHUAHUA_HOME/config/addrbook.json

@@ -13,6 +13,7 @@ spec:
   storageClassName: chihuahua-local-storage
   local:
     path: {{ $.Values.local_storage.path }}
+  {{ if eq $.Values.microk8s.enabled false}}
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -21,4 +22,5 @@ spec:
           operator: In
           values:
           - {{ $.Values.local_storage.host }}
+  {{ end }}
 {{- end }}

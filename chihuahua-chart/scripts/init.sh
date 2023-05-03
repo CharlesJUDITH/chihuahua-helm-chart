@@ -8,10 +8,37 @@ apt update && apt -y --no-install-recommends install ca-certificates curl jq > /
 type curl || exit 1
 type jq || exit 1
 
+# If Address book is enabled, download it
+if [ "$CHIHUAHUA_ADDRBOOK_ENABLED" == true ]; then
+  curl -s "$CHIHUAHUA_ADDRBOOK_URL" > "$CHIHUAHUA_HOME/config/addrbook.json"
+fi
+
 #Check if Home data exists, if not create it.
 if [ ! -d "$CHIHUAHUA_HOME/data" ]
 then
-/bin/chihuahuad init --chain-id "$CHIHUAHUA_CHAIN_ID" "$CHIHUAHUA_MONIKER"
+mkdir -p $CHIHUAHUA_HOME/data
+# Init the chain
+/usr/bin/chihuahuad init --chain-id "$CHIHUAHUA_CHAIN_ID" "$CHIHUAHUA_MONIKER"
+
+# If the node is a validator, do tx to create the validator
+# Make sure the Validator has fully synced before running 
+# if $CHIHUAHUA_VALIDATOR; then
+#   chihuahuad tx staking create-validator \
+#     --from "<key-name>" \
+#     --amount "1000000uhuahua" \
+#     --pubkey "$(chihuahuad tendermint show-validator)" \
+#     --chain-id "$CHIHUAHUA_CHAIN_ID" \
+#     --moniker "$CHIHUAHUA_MONIKER" \
+#     --commission-max-change-rate 0.01 \
+#     --commission-max-rate 0.20 \
+#     --commission-rate 0.10 \
+#     --min-self-delegation 1 \
+#     --details "<details>" \
+#     --security-contact "<contact>" \
+#     --website "<website>" \
+#     --gas-prices "1uhuahua"
+# fi
+
 cd "$CHIHUAHUA_HOME/data" || exit
 curl -s "$CHIHUAHUA_NET/genesis.json" > "$CHIHUAHUA_HOME/config/genesis.json"
 if [ "$CHIHUAHUA_STATESYNC_ENABLE" == true ]; then
