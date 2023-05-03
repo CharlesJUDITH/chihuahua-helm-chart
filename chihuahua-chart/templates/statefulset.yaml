@@ -114,6 +114,12 @@ spec:
             - name: home
               mountPath: "{{ .Values.home }}"
           {{- end }}
+          {{ if .Values.validator.enabled }}
+            - name: node-key
+              mountPath: /root/.chihuahuad/config/node_key.json
+            - name: priv-validator-key
+              mountPath: /root/.chihuahuad/config/priv_validator_key.json
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       containers:
@@ -252,4 +258,12 @@ spec:
             # Ensure the file directory is created.
             path: "{{ .Values.microk8s.hostpath }}"
             type: DirectoryOrCreate
+      {{- end }}
+      {{- if .Values.validator.enabled }}
+        - name: priv-validator-key
+          secret:
+            secretName: priv-validator-key
+        - name: node-key
+          secret:
+            secretName: node-key
       {{- end }}
