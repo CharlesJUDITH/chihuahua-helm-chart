@@ -227,13 +227,13 @@ local_storage:
 
 # If the node is a validator
 validator:
-  enabled: true
+  enabled: false
   node_key: 
   priv_key: 
 
 # If the node is a fullnode (non-validator)
 fullnode:
-  enabled: false
+  enabled: true
 
 imagePullSecrets: []
 nameOverride: ""
