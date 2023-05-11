@@ -11,7 +11,7 @@ spec:
     - port: 26656
       name: chihuahuad-p2p
     - port: 26659
-      name: chihuahuad-tmkms
+      name: chihuahuad-kms
   selector:
     chihuahua.network/fullnode: "{{ .Values.chihuahua_node.moniker }}"
 {{- end }}
@@ -27,6 +27,6 @@ spec:
     - port: 26656
       name: chihuahuad-p2p
     - port: 26659
-      name: chihuahuad-tmkms
+      name: chihuahuad-kms
   selector:
     app: "chihuahua-validator"
