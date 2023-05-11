@@ -19,3 +19,18 @@ spec:
   selector:
     chihuahua.network/fullnode: "{{ .Values.chihuahua_node.moniker }}"
 {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chihuahua-validator
+  namespace: {{ .Release.Namespace }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 26656
+      name: chihuahuad-p2p
+    - port: 26659
+      name: chihuahuad-tmkms
+  selector:
+    app: "chihuahua-validator"
