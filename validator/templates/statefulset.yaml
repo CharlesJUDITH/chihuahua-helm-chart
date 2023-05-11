@@ -101,10 +101,10 @@ spec:
             - name: config
               mountPath: /config
               readOnly: true
-            - name: config-toml
+            - name: chihuahua-validator-config-toml
               mountPath: /root/.chihuahuad/config/config.toml
               subPath: config.toml
-            - name: app-toml
+            - name: chihuahua-validator-app-toml
               mountPath: /root/.chihuahuad/config/app.toml
               subPath: app.toml
           {{- if .Values.local_storage.enabled }}
@@ -205,22 +205,18 @@ spec:
             - name: CHIHUAHUA_API_ENABLE
               value: "{{ .Values.chihuahua_node.api_enable }}"
           ports:
-            - containerPort: 1317
-              name: chihuahuad-api
-            - containerPort: 9090
-              name: chihuahuad-grpc
             - containerPort: 26656
               name: chihuahuad-p2p
-            - containerPort: 26657
-              name: chihuahuad-rpc
+            - containerPort: 26659
+              name: chihuahuad-tmkms
           volumeMounts:
             - name: config
               mountPath: /config
               readOnly: true
-            - name: config-toml
+            - name: chihuahua-validator-config-toml
               mountPath: /root/.chihuahuad/config/config.toml
               subPath: config.toml
-            - name: app-toml
+            - name: chihuahua-validator-app-toml
               mountPath: /root/.chihuahuad/config/app.toml
               subPath: app.toml
           {{- if .Values.validator.enabled }}

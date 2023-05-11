@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: chihuahua-node-config
+  name: chihuahua-validator-config-toml
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "chihuahua-node.labels" . | nindent 4 }}
@@ -55,15 +55,15 @@ data:
     [p2p]
     laddr = "{{ .Values.chihuahua_node.p2p.laddr | default "tcp://0.0.0.0:26656" }}"
     external_address = "{{ .Values.chihuahua_node.p2p.external_address | default "" }}"
-    {{- if .Values.chihuahua_node.addrbook.enabled }} 
-    seeds = "" 
+    {{- if .Values.chihuahua_node.addrbook.enabled }}
+    seeds = ""
     {{- else }}
     seeds = "{{ .Values.chihuahua_node.seeds}}"
     {{- end }}
     {{- if .Values.chihuahua_node.addrbook.enabled }}
     persistent_peers = ""
     {{- else }}
-    persistent_peers = "{{ .Values.chihuahua_node.peers}}" 
+    persistent_peers = "{{ .Values.chihuahua_node.peers}}"
     {{- end }}
     upnp = {{ .Values.chihuahua_node.p2p.upnp | default false }}
     addr_book_file = {{ .Values.chihuahua_node.p2p.addr_book_file | default "config/addrbook.json" | quote }}
@@ -136,7 +136,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: app-toml
+  name: chihuahua-validator-app-toml
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "chihuahua-node.labels" . | nindent 4 }}
