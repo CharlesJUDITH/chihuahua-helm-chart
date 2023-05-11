@@ -49,7 +49,7 @@ chihuahua_node:
   priv_validator_state_file: "data/priv_validator_state.json"
   # priv_validator_key_file: "config/priv_validator_key.json"
   priv_validator_key_file: ""
-  priv_validator_laddr: "tcp://chihuahua-validator.chihuahua.svc.cluster.local:26659"
+  priv_validator_laddr: "tcp://127.0.0.1:26659"
   node_key_file: "config/node_key.json"
   abci: "socket"
   filter_peers: false
