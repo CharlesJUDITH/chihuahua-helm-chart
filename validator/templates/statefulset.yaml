@@ -221,6 +221,13 @@ spec:
             - name: app-toml
               mountPath: /root/.chihuahuad/config/app.toml
               subPath: app.toml
+          {{- if .Values.validator.enabled }}
+            - name: node-key
+              mountPath: /root/.chihuahuad/config/node_key.json
+              subPath: node_key.json
+            - name: priv-validator-key
+              mountPath: /root/.chihuahuad/config/priv_validator_key.json
+          {{- end }}
           {{- if .Values.local_storage.enabled }}
             - name: local-persistent-storage
               mountPath: "{{ .Values.home }}"
