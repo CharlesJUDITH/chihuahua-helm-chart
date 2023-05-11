@@ -252,12 +252,12 @@ spec:
         - name: config
           configMap:
             name: chihuahua-node-config
-        - name: config-toml
+        - name: chihuahua-validator-config-toml
           configMap:
-            name: config-toml
-        - name: app-toml
+            name: chihuahua-validator-config-toml
+        - name: chihuahua-validator-app-toml
           configMap:
-            name: app-toml
+            name: chihuahua-validator-app-toml
       {{- if .Values.microk8s.enabled }}
         - name: home
           hostPath:
