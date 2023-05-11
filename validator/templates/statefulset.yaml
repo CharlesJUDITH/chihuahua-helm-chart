@@ -117,8 +117,10 @@ spec:
           {{- if .Values.validator.enabled }}
             - name: node-key
               mountPath: /root/.chihuahuad/config/node_key.json
+              subPath: node_key.json
             - name: priv-validator-key
               mountPath: /root/.chihuahuad/config/priv_validator_key.json
+              subPath: priv_validator_key.json
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
@@ -227,6 +229,7 @@ spec:
               subPath: node_key.json
             - name: priv-validator-key
               mountPath: /root/.chihuahuad/config/priv_validator_key.json
+              subPath: priv_validator_key.json
           {{- end }}
           {{- if .Values.local_storage.enabled }}
             - name: local-persistent-storage
