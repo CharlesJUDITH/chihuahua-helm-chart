@@ -26,9 +26,9 @@ data:
     log_level = "{{ .Values.log_level | default "info" }}"
     log_format = "{{ .Values.log_format | default "plain" }}"
     genesis_file = "{{ .Values.genesis_file | default "config/genesis.json" }}"
-    priv_validator_key_file = "{{ .Values.priv_validator_key_file | default "config/priv_validator_key.json" }}"
+    priv_validator_key_file = "{{ .Values.chihuahua_node.priv_validator_key_file | default "config/priv_validator_key.json" }}"
     priv_validator_state_file = "{{ .Values.priv_validator_state_file | default "data/priv_validator_state.json" }}"
-    priv_validator_laddr = "{{ .Values.priv_validator_laddr | default "" }}"
+    priv_validator_laddr = "{{ .Values.chihuahua_node.priv_validator_laddr | default "" }}"
     node_key_file = "{{ .Values.node_key_file | default "config/node_key.json" }}"
     abci = "{{ .Values.abci | default "socket" }}"
     filter_peers = {{ .Values.filter_peers | default false }}
