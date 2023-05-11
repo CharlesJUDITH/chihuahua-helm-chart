@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: chihuahua-node
+  name: chihuahua-node-validator
   namespace: {{ .Release.Namespace }}
   labels:
   {{- if .Values.validator.enabled }}
