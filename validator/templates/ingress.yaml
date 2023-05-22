@@ -17,7 +17,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: chihuahua-node-1
+                name: chihuahua-fullnode
                 port:
                   number: 26657
     - host: chihuahua-grpc.{{ .Values.ingress.domain }}
@@ -27,7 +27,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: chihuahua-node-1
+                name: chihuahua-fullnode
                 port:
                   number: 9090
     - host: chihuahua-p2p.{{ .Values.ingress.domain }}
@@ -37,7 +37,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: chihuahua-node-1
+                name: chihuahua-fullnode
                 port:
                   number: 26656
 {{- end }}
