@@ -213,6 +213,8 @@ spec:
               name: chihuahuad-p2p
             - containerPort: 26659
               name: chihuahuad-kms
+            - containerPort: 26660
+              name: chihuahuad-metrics
           volumeMounts:
             - name: config
               mountPath: /config
