@@ -14,7 +14,11 @@ metadata:
   {{- end }}
 spec:
   replicas: 1
-  serviceName: {{ include "chihuahua-node.fullname" . }}
+  {{- if .Values.validator.enabled }}
+  serviceName: chihuahua-validator
+  {{- else }}
+  serviceName: chihuahua-fullnode
+  {{- end }}
   selector:
     matchLabels:
     {{- if .Values.validator.enabled }}
