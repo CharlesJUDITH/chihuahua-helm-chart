@@ -1,3 +1,7 @@
-# chihuahua-helm-chart
+# Charts
 
-Helm chart to install Chihuahua in Kubernetes
+This is a list of Helm chart to run node in Kubernetes.
+
+Supported charts:
+
+* Chihuahua
